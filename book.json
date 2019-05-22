@@ -1,0 +1,30 @@
+{
+  "language": "zh-hans",
+  "plugins": [
+    "-lunr",
+    "-search",
+    "search-pro",
+    "chapter-fold",
+    "splitter",
+    "code",
+    "todo",
+    "back-to-top-button",
+    "-sharing",
+    "sharing-plus",
+    "pageview-count",
+    "disqus"
+  ],
+  "pluginsConfig": {
+    "disqus": {
+      "shortName": "gitbook-tutorial"
+    },
+    "sharing": {
+      "all": [
+        "weibo",
+        "qq",
+        "qzone",
+        "whatsapp"
+      ]
+    }
+  }
+}
