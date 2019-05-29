@@ -8,7 +8,7 @@ Map是编程中常用数据结构，它存储一组键值对象，提供key（�
 # 2 核心类图
 ***
 java.util.Map只是进行了规范化定义，并没有具体实现。Java中有HashMap，HashTable等实现了该规范，其核心类图如下
-![image](/images/Map_class_diagram.jpg)
+![image](/images/map_class_diagram.jpg)
 
 [HashMap](/sourcecode/Map/HashMap.md)
 

@@ -12,11 +12,27 @@
     "-sharing",
     "sharing-plus",
     "pageview-count",
-    "disqus"
+    "mermaid-gb3",
+    "new-flowchart",
+    "prism",
+    "prism-themes",
+    "advanced-emoji"
   ],
   "pluginsConfig": {
-    "disqus": {
-      "shortName": "gitbook-tutorial"
+    "theme-default": {
+      "showLevel": true
+    },
+    "prism": {
+      "css": [
+        "prism-themes/themes/prism-xonokai.css"
+      ],
+      "lang": {
+        "flow": "typescript"
+      },
+      "ignore": [
+        "mermaid",
+        "mermaid-gb3"
+      ]
     },
     "sharing": {
       "all": [

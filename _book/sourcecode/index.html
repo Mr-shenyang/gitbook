@@ -12,6 +12,7 @@
         
         
     
+    
     <link rel="stylesheet" href="../gitbook/style.css">
 
     
@@ -41,7 +42,11 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-xonokai.css">
                 
             
                 
@@ -68,6 +73,9 @@
         
     
         
+    
+
+
     
 
         
@@ -118,6 +126,8 @@
                 <a href="../">
             
                     
+                        <b>1.1.</b>
+                    
                     简介
             
                 </a>
@@ -130,6 +140,8 @@
             
                 <a href="./">
             
+                    
+                        <b>1.2.</b>
                     
                     源码阅读
             
@@ -145,6 +157,8 @@
                 <a href="map/">
             
                     
+                        <b>1.2.1.</b>
+                    
                     第一章 Map
             
                 </a>
@@ -159,6 +173,8 @@
                 <a href="map/HashMap.html">
             
                     
+                        <b>1.2.1.1.</b>
+                    
                     第一节 HasMap
             
                 </a>
@@ -172,10 +188,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="map/">
+        <li class="chapter " data-level="1.2.2" data-path="list/">
             
-                <a href="map/">
+                <a href="list/">
             
+                    
+                        <b>1.2.2.</b>
                     
                     第二章 List
             
@@ -185,12 +203,50 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="map/">
+        <li class="chapter " data-level="1.2.3" data-path="concurrent/">
             
-                <a href="map/">
+                <a href="concurrent/">
             
                     
-                    第三章 锁事
+                        <b>1.2.3.</b>
+                    
+                    第三章 并发锁事
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../jvm/">
+            
+                <a href="../jvm/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    jvm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../jvm/gc.html">
+            
+                <a href="../jvm/gc.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    gc
             
                 </a>
             
@@ -293,12 +349,13 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"源码阅读","level":"1.2","depth":1,"next":{"title":"第一章 Map","level":"1.2.1","depth":2,"path":"sourcecode/map/README.md","ref":"sourcecode/map/README.md","articles":[{"title":"第一节 HasMap","level":"1.2.1.1","depth":3,"path":"sourcecode/map/HashMap.md","ref":"sourcecode/map/HashMap.md","articles":[]}]},"previous":{"title":"简介","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","chapter-fold","splitter","code","todo","back-to-top-button","-sharing","sharing-plus","pageview-count","disqus","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"disqus":{"useIdentifier":false,"shortName":"gitbook-tutorial"},"livereload":{},"todo":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["weibo","qq","qzone","whatsapp"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"sourcecode/README.md","mtime":"2019-05-20T11:27:10.257Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-20T16:28:06.604Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"源码阅读","level":"1.2","depth":1,"next":{"title":"第一章 Map","level":"1.2.1","depth":2,"path":"sourcecode/map/README.md","ref":"sourcecode/map/README.md","articles":[{"title":"第一节 HasMap","level":"1.2.1.1","depth":3,"path":"sourcecode/map/HashMap.md","ref":"sourcecode/map/HashMap.md","articles":[]}]},"previous":{"title":"简介","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","chapter-fold","splitter","code","todo","back-to-top-button","-sharing","sharing-plus","pageview-count","mermaid-gb3","prism","prism-themes","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-xonokai.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","mermaid-gb3"]},"livereload":{},"todo":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"all":["weibo","qq","qzone","whatsapp"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"sourcecode/README.md","mtime":"2019-05-20T11:27:10.257Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T03:50:54.110Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
 
         
+    
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
     
@@ -335,11 +392,7 @@
         
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
         
     
         
@@ -350,6 +403,8 @@
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
 
     </body>
 </html>
