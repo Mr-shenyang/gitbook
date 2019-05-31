@@ -138,7 +138,6 @@ buildNumber.properties
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 /node_modules/
-/_book/
 # JIRA plugin
 atlassian-ide-plugin.xml
 
