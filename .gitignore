@@ -134,6 +134,7 @@ buildNumber.properties
 # IntelliJ
 /out/
 .idea
+.vscode
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -151,3 +152,4 @@ logs/
 
 document.html
 swagger.json
+package-lock.json
