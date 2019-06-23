@@ -16,8 +16,6 @@ java.util.Map只是进行了规范化定义，并没有具体实现。Java中有
 ***
 直接看1.8版本中Map的类图
 
-
-
 可以发现1.8版本的jdk相对1.7中增加了很多方法比如：putIfAbsent等。
 ```
     default V putIfAbsent(K key, V value) {

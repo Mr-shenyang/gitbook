@@ -13,6 +13,7 @@
 
 # 2 HashMap结构简述
 HashMap继承自Map，实现了Map的主结构Entry<K,V>，包含key、value以及指向下一个Entry的引用
+
 ```java
 static class Entry<K,V> implements Map.Entry<K,V> {
     final K key;
@@ -85,8 +86,10 @@ public class HashMap<K, V> {
     }
 }
 ```
+
 jdk1.7中为HashMap提供了4个构造函数，其中三个方法，一堆参数初始化后殊途同归的走向init()方法，当我满心欢喜以为马上就要揭开核心时发现，我操什么鬼，init里面什么都没有。注释都没有。只能心里默默的念叨，好吧看来初始化就是纯粹意义上的初始化。
 不过三个构造函数一通看完并不是没有收获，比如
+
 * HashMap  默认容量是16
 * HashMap  （loadFactor）默认负载因子是0.75
 * HashMap  （threshold）初始阈值是容量
@@ -95,6 +98,7 @@ jdk1.7中为HashMap提供了4个构造函数，其中三个方法，一堆参数
 我们知道jdk1.7的Map规范中定义了，Map的写操作就两个，put(K key,V value)和putAll(Map<? extends K, ? extends V> map)
 
 这里先看下put操作
+
 ```java
 public V put(K key, V value) {
     if (table == EMPTY_TABLE) {
@@ -235,41 +239,8 @@ void createEntry(int hash, K key, V value, int bucketIndex) {
 至此put方法完了。
 
 最后说下总体put的总体流程
+![HashMapAddEntry_1.7_get](/images/map/HashMapAddEntry_1.7_put.png)
 
-```flow
-st=>start: 键值对
-bolckIsNull=>condition: 是否分配空间
-keyIsnNull=>condition: key is null?
-valueIsExist=>condition: value is exist?
-overThreshold=>condition: 超过阈值且主干不为空
-
-allocationBolck=>operation: 分配空间
-hash=>operation: 获取hash编码
-indexFor=>operation: 获取主干位置(bucketIndex)
-processNullKey=>operation: hash=0,bucketIndex=0
-processExistKey=>operation: 用新的value替换旧value
-returnExistValue=>operation: 返回旧value
-createEntry=>operation: 添加数据
-returnNull=>operation: 返回null
-resize=>operation: 扩容
-reHash=>operation: 重新hash
-reIndexFor=>operation: 重获主干位置(bucketIndex)
-e=>end: End
-
-
-st->bolckIsNull
-bolckIsNull(yes)->keyIsnNull
-bolckIsNull(no,right)->allocationBolck->keyIsnNull
-keyIsnNull(yes,right)->processNullKey->valueIsExist
-keyIsnNull(no)->hash->indexFor->valueIsExist
-valueIsExist(yes)->processExistKey->returnExistValue->e
-valueIsExist(no)->overThreshold
-overThreshold(yes,right)->resize
-resize(right)->reHash(right)->reIndexFor->createEntry
-overThreshold(no)->createEntry
-createEntry->returnNull->e
-
-```
 ## 3.3 关于扩容
 在进行put操作是有个判定，如果size>=当前阀值，并且对于的table[bucketIndex]位置不为空就调用resize方法进行扩容。
 ```java
@@ -371,28 +342,12 @@ createEntry->returnNull->e
         return null;
     }
 ```
-通过代码阅读，可以看到get方法比较简单。
-```flow
-st=>start: key
-sizeIsZero=>condition: tableSize is 0
-keyIsNull=>condition: key is null
-nullKeyValue=>operation: table[0]链表中找null对应的value
-findkeyValue=>operation: table[bucketIndex]链表中找key对应的value
-hash=>operation: 计算key的hash
-indexFor=>operation: 计算key对应的存储位置
-returnNull=>operation: 返回空
-existKey=>condition: 存在对应的key
-returnValue=>operation: 返回值
-e=>end: end
 
-st->sizeIsZero(no)->keyIsNull
-sizeIsZero(yes,right)->returnNull
-keyIsNull(yes,right)->nullKeyValue->existKey
-keyIsNull(no)->hash->indexFor->findkeyValue->existKey
-existKey(yes)->returnValue->e
-existKey(no)->returnNull->e
-```
+通过代码阅读，可以看到get方法比较简单。
+![HashMapAddEntry_1.7_get](/images/map/HashMapAddEntry_1.7_get.png)
+
 ## 3.5 关于移除操作
+
 ```java
 /***
  * 移除hashmap中指定的key
@@ -442,7 +397,11 @@ final Entry<K,V> removeEntryForKey(Object key) {
     return e;
 }
 ```
+
+![HashMapAddEntry_1.7_get](/images/map/HashMapAddEntry_1.7_remove.png)
+
 可以看到，hashmap的移除操作相对还是很简单的
+
 
 # 4 jdk1.8新特性
 读完了1.7的HashMap源码我以为终于掌握了一套葵花宝典，发现我想多了。1.8中HashMap对于Hash碰撞的解决方案做了比较大的改动，引入了**红黑树**来解决碰撞。闲话少叙，直接上源码吧。
