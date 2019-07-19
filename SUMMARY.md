@@ -1,13 +1,29 @@
 # Summary
 
 * [简介](README.md)
+* [架构]
+    * [设计模式](src/architecture/DesignMode.md)
+* [软技能]
+    * [Star](src/soft_skills/interview_star.md)
+    * [Pdca](src/soft_skills/pdca.md)
+    * [Smart](src/soft_skills/Smart.md)
+* [规范]
+    * [编码规范](src/specification/Code.md)
+    * [codereview规范](src/specification/CodeReview.md)
+    * [Idea使用规范](src/specification/Idea.md)
+* [jvm](src/jvm/JVM.md)
+    * [gc](src/jvm/JMM.md)
+    * [gc](src/jvm/ClassLoad.md)
+    * [gc](src/jvm/GC.md)
 * [源码阅读](src/sourcecode/README.md)
     * [第一章 Map](src/sourcecode/map/Map.md)
         * [第一节 HasMap](src/sourcecode/map/HashMap.md)
     * [第二章 List](src/sourcecode/list/List.md)
     * [第三章 并发锁事](src/sourcecode/concurrent/Concurrent.md)
-* [jvm](src/jvm/JVM.md)
-    * [gc](src/jvm/GC.md)
+* [JSON]
+    * [Gson](src/json/Gson.md)
 * [spring](src/spring/Spring.md)
 * [maven](src/maven/Maven.md)
+* [redis](src/redis/redis.md)
 * [悦读](src/reader/Readme.md)
+    * [学会提问](src/reader/学会提问.md)
