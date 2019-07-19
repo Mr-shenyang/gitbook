@@ -1,4 +1,4 @@
-# 一 什么是STAR行为面试法
+# 一 什么是STAR
 
 ![interview_star](/images/interview_star.png)
 
