@@ -15,7 +15,9 @@
 Http报文主要由头部，实体两部分组成，具体如下图
 ![http-xmind](/images/read_notes/http-msg.jpeg)
 这里重点介绍下头部的格式，http报文从形式上分成请求报文，和响应报文。他们的头部（header）分布如下：
+
+**请求报文头**
 ![http-request](/images/read_notes/http-request.jpeg)
-请求报文头
+
+**响应报文头**
 ![http-response](/images/read_notes/http-response.jpeg)
-响应报文头

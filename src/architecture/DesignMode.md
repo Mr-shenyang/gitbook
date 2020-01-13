@@ -147,9 +147,21 @@ public class SingletonDemo {
 
 ## 6.7 观察者模式
 
-## 6.8 状态模式
 
-## 6.9 策略模式
+## 6.8 状态模式-status
+
+## 6.9 策略模式-strategy
+
+**意图：** 利用面向对象的继承和多态机制，实现。
+
+**适用范围：** 同一算法不同实现方式
+
+**实现要点：** 
+ #1. Context支持策略注册，策略实现基于多态
+ #2. 不同策略实现基于继承和多态
+
+**UML：**
+![策略模式](/images/architecture/design_mode/strategy-mode.png)
 
 ## 6.10 模板方法模式
 
