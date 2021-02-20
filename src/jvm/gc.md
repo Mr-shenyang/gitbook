@@ -53,6 +53,13 @@ jvm规范对垃圾收集器的实现，没有做规定因此不同的厂商、�
 ![CMS](/images/gc_cms.png)
 
 ## 3.7 G1
+[官方文档](https://docs.oracle.com/javase/9/gctuning/garbage-first-garbage-collector.htm#JSGCT-GUID-15921907-B297-43A4-8C48-DC88035BC7CF)
+### 3.7.1 内存布局
+![G1 Heap Layout](/images/jvm/GC/G1/HeapLayout.png)
+G1将内存区域分割成很多个固定大小(RegionSize)的Region。
 
+
+
+### 3.7.2 GC回收
 ![G1](/images/gc_g1.png)
 
