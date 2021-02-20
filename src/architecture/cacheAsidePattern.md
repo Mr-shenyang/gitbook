@@ -1,0 +1,2 @@
+cache aside pattern
+

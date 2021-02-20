@@ -1,5 +1,5 @@
 
-# spring初始化流程图
+# springboot初始化流程图
 
 在详细介绍spring初始化流程之前，先将流程图画在这里
 

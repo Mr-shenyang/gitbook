@@ -45,7 +45,7 @@ static final class Node {
 
 ## ConditionObject
 
-AQS中还有个比较重要的内部内ConditionObject，在介绍ConditionObject之前，先看看其父接口Condition。
+AQS中还有个比较重要的内部类ConditionObject，在介绍ConditionObject之前，先看看其父接口Condition。
 
 ### Condition是什么
 
@@ -53,14 +53,7 @@ AQS中还有个比较重要的内部内ConditionObject，在介绍ConditionObjec
 public interface Condition {
 
     void await() throws InterruptedException;
-
-    void awaitUninterruptibly();
-
-    long awaitNanos(long nanosTimeout) throws InterruptedException;
-
-    boolean await(long time, TimeUnit unit) throws InterruptedException;
-
-    boolean awaitUntil(Date deadline) throws InterruptedException;
+    /** 部分方法省略*/
 
     void signal();
 
@@ -88,6 +81,7 @@ public class ConditionObject implements Condition, java.io.Serializable {
 ```
 
 **await**
+阻塞线程
 
 ```java
 public final void await() throws InterruptedException {
@@ -112,25 +106,4 @@ public final void await() throws InterruptedException {
     if (interruptMode != 0)
         reportInterruptAfterWait(interruptMode);
 }
-
-//将当期线程添加到队尾
-private Node addConditionWaiter() {
-    Node t = lastWaiter;
-    // If lastWaiter is cancelled, clean out.
-    if (t != null && t.waitStatus != Node.CONDITION) {
-        //清除已取消的等待节点
-        unlinkCancelledWaiters();
-        t = lastWaiter;
-    }
-    //创建新的节点，并添加到队尾
-    Node node = new Node(Thread.currentThread(), Node.CONDITION);
-    if (t == null)
-        firstWaiter = node;
-    else
-        t.nextWaiter = node;
-        //移动lastWaiter
-    lastWaiter = node;
-    return node;
-}
 ```
-
