@@ -13,10 +13,10 @@
 * [jvm](src/jvm/JVM.md)
     * [JMM](src/jvm/JMM.md)
     * [ClassLoad](src/jvm/ClassLoad.md)
-    * [gc]
-        * [第一章 GC 简述](src/jvm/01_abstract.md)
-        * [第二章 历史算法简述](src/jvm/02_history.md)
-        * [第三章 G1算法](src/jvm/03_G1.md)
+    * GC
+        * [第一章 GC 简述](src/jvm/gc/01_abstract.md)
+        * [第二章 历史算法简述](src/jvm/gc/02_history.md)
+        * [第三章 G1算法](src/jvm/gc/03_G1.md)
 * [源码阅读](src/sourcecode/README.md)
     * [第一章 Map](src/sourcecode/map/Map.md)
         * [第一节 HasMap](src/sourcecode/map/HashMap.md)
