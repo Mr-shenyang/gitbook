@@ -101,6 +101,7 @@ public class SingletonDemo {
 
 ## 4.4 工厂方法模式
 
+
 ## 4.5 抽象工厂模式
 
 # 5 结构型模式
@@ -147,7 +148,6 @@ public class SingletonDemo {
 
 ## 6.7 观察者模式
 
-
 ## 6.8 状态模式-status
 
 ## 6.9 策略模式-strategy
@@ -157,8 +157,8 @@ public class SingletonDemo {
 **适用范围：** 同一算法不同实现方式
 
 **实现要点：** 
- #1. Context支持策略注册，策略实现基于多态
- #2. 不同策略实现基于继承和多态
+ 1. Context支持策略注册，策略实现基于多态
+ 2. 不同策略实现基于继承和多态
 
 **UML：**
 ![策略模式](/images/architecture/design_mode/strategy-mode.png)
