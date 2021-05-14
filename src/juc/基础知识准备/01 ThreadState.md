@@ -12,7 +12,7 @@
 
 然后从哪里开始聊呢，先上一个状态轮转图吧
 
-![thread状态图](/images/thread/ThreadStatus.png)
+![thread状态图](/images/juc/ThreadStatus.png)
 
 # 2 演示说明
 
