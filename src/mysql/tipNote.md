@@ -7,6 +7,3 @@
 * 修改密码：UPDATE mysql.user SET authentication_string=PASSWORD('你的密码') WHERE User='root';
 
 > alter user user() identified by '你的密码'; 也是设置密码的命令
-
-# 02 explain命令详解
-
