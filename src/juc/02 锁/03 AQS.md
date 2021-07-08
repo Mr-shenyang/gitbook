@@ -18,29 +18,3 @@
 
 可以看到AQS本身继承自AbstractOwnableSynchronizer，它内部包含了Node类和继承自接口Condition的ConditionObject类。
 
-## Node
-
-```java
-static final class Node {
-    /**
-    * SIGNAL -1 表示当前节点的后继节点包含的线程需要运行
-    * CANCELLED 1 表示当前线程被取消
-    * CONDITION -2 表示当前节点在等待condition，也就是在condition队列中；
-    * PROPAGATE -3 表示当前场景下后续的acquireShared能够得以执行
-    * 0 表示当前节点在sync队列中，等待着获取锁
-    */
-    volatile int waitStatus;
-
-    volatile Node prev;
-
-    volatile Node next;
-
-    volatile Thread thread;
-
-    Node nextWaiter;
-}
-```
-
-这是一个很清爽的链表数据结构，包括了线程thread、节点状态waitStatus以及prev、next和nextWaiter；
-
-##
