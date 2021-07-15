@@ -32,11 +32,38 @@ public interface Condition {
 
 Condition中对线程阻塞和唤醒只是给出了定义，具体实现还得依赖ConditionObject；其模型结构如下：
 
+![AQS_Condition_原理](/images/juc/01基础/AQS_Condition_原理.png)
+
 ```java
 public class ConditionObject implements Condition, java.io.Serializable {
     /** First node of condition queue. */
     private transient Node firstWaiter;
     /** Last node of condition queue. */
     private transient Node lastWaiter;
+}
+```
+
+## 核心方法详解
+
+### await
+
+```java
+public final void await() throws InterruptedException {
+    if (Thread.interrupted())
+        throw new InterruptedException();
+    Node node = addConditionWaiter();
+    int savedState = fullyRelease(node);
+    int interruptMode = 0;
+    while (!isOnSyncQueue(node)) {
+        LockSupport.park(this);
+        if ((interruptMode = checkInterruptWhileWaiting(node)) != 0)
+            break;
+    }
+    if (acquireQueued(node, savedState) && interruptMode != THROW_IE)
+        interruptMode = REINTERRUPT;
+    if (node.nextWaiter != null) // clean up if cancelled
+        unlinkCancelledWaiters();
+    if (interruptMode != 0)
+        reportInterruptAfterWait(interruptMode);
 }
 ```
