@@ -47,11 +47,15 @@ public class ConditionObject implements Condition, java.io.Serializable {
 
 ### await
 
+这里以AbstractQueuedSynchronizer中的ConditionObject实现为例进行解读；
+
 ```java
 public final void await() throws InterruptedException {
     if (Thread.interrupted())
         throw new InterruptedException();
+    //为当前流程创建Node并放入队尾
     Node node = addConditionWaiter();
+
     int savedState = fullyRelease(node);
     int interruptMode = 0;
     while (!isOnSyncQueue(node)) {
@@ -66,4 +70,24 @@ public final void await() throws InterruptedException {
     if (interruptMode != 0)
         reportInterruptAfterWait(interruptMode);
 }
+
+private Node addConditionWaiter() {
+    //获取队尾Node
+    Node t = lastWaiter;
+    // 如果队尾的Node已经不需要运行了，则清理队尾
+    if (t != null && t.waitStatus != Node.CONDITION) {
+        unlinkCancelledWaiters();
+        t = lastWaiter;
+    }
+    // 基于当前线程创建节点，并加入队尾；
+    Node node = new Node(Thread.currentThread(), Node.CONDITION);
+    if (t == null)
+        firstWaiter = node;
+    else
+        t.nextWaiter = node;
+    lastWaiter = node;
+    return node;
+}
 ```
+
+### await

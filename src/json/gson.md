@@ -6,6 +6,7 @@
 
 Gson是谷歌出品的一款json转化工具，具有依赖少、线程安全、效率较高等特性。
 
+
 ## 2.1 Gson核心类图浏览
 
 ![image](/images/json/gson_class.png)
@@ -28,6 +29,10 @@ Gson支持用户自定义适配器；
 Gson序列化常用入口是 toJson,这里我们就简单跟踪下，Json序列化的过程。
 简单来说，Gson的序列化过程就是一个迭代寻找适配器的过程。
 
+**流程图：**
+
+
+**代码：**
 ```java
 public void toJson(Object src, Type typeOfSrc, JsonWriter writer){
     //省略非核心代码  
@@ -107,9 +112,9 @@ private ReflectiveTypeAdapterFactory.BoundField createBoundField(
   }
 ```
 
-
-
 ## 2.3 反序列化
+
+
 
 反序列化是序列化的另一面，Gson反序列化常用入口是fromJson。
 
@@ -132,7 +137,7 @@ public <T> T fromJson(JsonReader reader, Type typeOfT) throws JsonIOException, J
 
 # 3 常见坑
 
-** 1）默认Gson序列化时，会丢弃null的参数**
+**1）默认Gson序列化时，会丢弃null的参数**
 
 ```java
 
@@ -178,9 +183,9 @@ serializeNulls解决方案后：json 2 dto{"notNUllInteger":1,"nullInteger":null
 
 可以看到，在默认场景下，gson序列化后的sting中是没有“nullInteger”属性的。
 
-**解决方案：**指定Gson的serializeNulls属性即：new GsonBuilder().serializeNulls().create()
+**解决方案：** 指定Gson的serializeNulls属性即：new GsonBuilder().serializeNulls().create()
 
-2）通配符可以正常序列化，但是反序列化时会出错
+**2）通配符可以正常序列化，但是反序列化时会出错**
 
 ```java
 public class GsonDemo {
@@ -213,12 +218,12 @@ json 2 list:[1.0, 1.2, 1.23]
 
 原因是：Gson在序列化时，Gson可以通过obj.getClass()获取字段的类型信息，用于序列化。而反序列化时，由于类型丢失，所以反序列化会出错。
 
-** 解决方案：**
+**解决方案：**
 
 1、如果list中是固定类型，可以通过TypeToken指定解析类型来反序列化，即gson.fromJson(integerList2Json, new TypeToken<List<Integer>>(){}.getType()) ；
 
 2、通过添加Adapt来对其进行特殊处理；
 
-** 3）Gson在解析日期类型时，会依赖运行机器上配置的Local**
+**3）Gson在解析日期类型时，会依赖运行机器上配置的Local**
 
-不同的local配置，可能会稍有差异。
+不同的local配置，可能会稍有差异
